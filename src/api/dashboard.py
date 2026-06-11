@@ -113,7 +113,7 @@ with st.sidebar:
     col1, col2, col3 = st.columns([1, 1.5, 1])
     with col2:
         try:
-            st.image("image/logo.png", use_container_width=True)
+            st.image("image/logo1.png", use_container_width=True)
         except:
             st.markdown("<h2 style='color: #738c64; font-family: Space Grotesk; text-align: center;'>[ LOGO ]</h2>", unsafe_allow_html=True)
     
@@ -124,9 +124,9 @@ with st.sidebar:
     
     with st.expander("TEMPORAL CONTEXT", expanded=True):
         hr = st.slider("Hour of Day", 0, 23, 12, format="%d:00")
-        workingday = st.checkbox("Business Operations", value=True)
-        season = st.selectbox("Seasonality", [1, 2, 3, 4], 
-                              format_func=lambda x: {1:"Spring", 2:"Summer", 3:"Autumn", 4:"Winter"}[x])
+        workingday = st.checkbox("Working Day", value=True)
+        season = st.selectbox("Season", [1, 2, 3, 4], 
+                            format_func=lambda x: {1:"Spring", 2:"Summer", 3:"Autumn", 4:"Winter"}[x])
     
     with st.expander("WEATHER CONDITIONS", expanded=True):
         temp_c = st.slider("Temperature (°C)", -10, 45, 22)
@@ -166,6 +166,7 @@ except Exception as e:
     st.sidebar.warning(f"System initializing... ({type(e).__name__})")
     prediction = 150 
     is_live = False
+
 st.markdown(
     "<h1 style='font-family: Space Grotesk;'>B<span style='color: #ef4444;'>AI</span>K | BEHAVIORAL <span style='color: #ef4444;'>ARTIFICIAL INTELLIGENCE</span> KINEMATICS</h1>", 
     unsafe_allow_html=True
@@ -179,7 +180,7 @@ if not is_live:
 st.markdown("---")
 m1, m2, m3, m4 = st.columns(4)
 m1.metric("DEMAND FORECAST", f"{prediction} Units", f"{'+12%' if rush_val else '-4%'}")
-m2.metric("EXPECTED REVENUE", f"{prediction: .2f} PLN", "EST. GROSS")
+m2.metric("EXPECTED REVENUE", f"{prediction * 3.85: .2f} PLN", "EST. GROSS")
 m3.metric("STATION LOAD", f"{min(98, int(prediction/4.2))} %", "CRITICAL" if prediction > 250 else "STABLE")
 m4.metric("CO2 REDUCTION", f"{prediction * 0.95:.1f} kg", "GREEN IMPACT")
 

@@ -40,10 +40,10 @@ Po poprawnym uruchomieniu, system udostępnia następujące interfejsy:
 
 | Usługa | Adres URL | Opis |
 | :--- | :--- | :--- |
-| 🚲 **Dashboard** | [http://localhost:9000](http://localhost:9000) | Interaktywny panel sterowania dla operatora. |
-| 🔌 **API (Swagger)** | [http://localhost:8000/docs](http://localhost:8000/docs) | Dokumentacja i testowanie punktów końcowych API. |
-| 🗄️ **pgAdmin** | [http://localhost:8080](http://localhost:8080) | Przeglądarka bazy danych (Login: `admin@admin.com`, Hasło: `admin`). |
-| 📉 **MLflow** | [http://localhost:5000](http://localhost:5000) | Panel śledzenia eksperymentów i metryk modelu. |
+|  **Dashboard** | [http://localhost:9000](http://localhost:9000) | Interaktywny panel sterowania dla operatora. |
+|  **API (Swagger)** | [http://localhost:8000/docs](http://localhost:8000/docs) | Dokumentacja i testowanie punktów końcowych API. |
+|  **pgAdmin** | [http://localhost:8080](http://localhost:8080) | Przeglądarka bazy danych (Login: `admin@admin.com`, Hasło: `admin`). |
+|  **MLflow** | [http://localhost:5000](http://localhost:5000) | Panel śledzenia eksperymentów i metryk modelu. |
 
 ## Wykorzystane Cechy (Features)
 
@@ -96,7 +96,7 @@ Analiza porównuje dane produkcyjne z danymi referencyjnymi (treningowymi), gene
 
 Poniżej przedstawiono główny panel operatora umożliwiający symulację scenariuszy pogodowych i czasowych oraz analizę prognozowanego popytu.
 
-![Dashboard](/image/dashboard_view.png)
+![Dashboard](/image/dashboard_view1.png)
 
 ## Możliwości Rozwoju
 
