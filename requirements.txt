@@ -1,0 +1,14 @@
+pandas
+sqlalchemy
+psycopg2-binary
+requests
+prefect
+mlflow
+scikit-learn
+joblib
+fastapi
+uvicorn
+streamlit
+plotly
+xgboost
+evidently

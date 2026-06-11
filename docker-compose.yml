@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: bikeshare_db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: secretpassword
+      POSTGRES_DB: bike_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: bikeshare_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+
+  app:
+    build: .
+    container_name: bikeshare_app
+    ports:
+      - "8000:8000"
+      - "9000:8501" 
+      - "5000:5000"
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+    environment:
+      DB_URL: "postgresql://admin:secretpassword@db:5432/bike_db"
+      PREFECT_API_DATABASE_CONNECTION_URL: "sqlite+aiosqlite:///:memory:"
+      PREFECT_API_REQUEST_TIMEOUT: "60.0"
+
+volumes:
+  postgres_data:
